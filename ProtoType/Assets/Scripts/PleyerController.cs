@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PleyerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region 
+    [Header("Car Config")]
+    public float speed= 15.0f;
+
+    #endregion
     void Start()
     {
         
@@ -14,6 +18,6 @@ public class PleyerController : MonoBehaviour
     void Update()
     {
         //we'll move vihicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime*20);
+        transform.Translate(Vector3.forward * Time.deltaTime*speed);
     }
 }
