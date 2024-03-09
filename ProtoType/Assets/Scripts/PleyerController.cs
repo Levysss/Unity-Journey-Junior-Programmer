@@ -7,6 +7,7 @@ public class PleyerController : MonoBehaviour
     #region 
     [Header("Car Config")]
     public float speed= 15.0f;
+    public float turnSpeed;
 
     #endregion
     void Start()
@@ -19,5 +20,6 @@ public class PleyerController : MonoBehaviour
     {
         //we'll move vihicle forward
         transform.Translate(Vector3.forward * Time.deltaTime*speed);
+        transform.Translate(Vector3.right * Time.deltaTime * turnSpeed);
     }
 }
