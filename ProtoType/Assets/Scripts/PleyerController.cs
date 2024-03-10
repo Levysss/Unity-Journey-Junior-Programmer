@@ -7,8 +7,9 @@ public class PleyerController : MonoBehaviour
     #region 
     [Header("Car Config")]
     public float speed= 15.0f;
-    public float turnSpeed;
-
+    public float turnSpeed = 25.0f;
+    private float horizontalInput;
+    private float forwardInput;
     #endregion
     void Start()
     {
@@ -18,8 +19,10 @@ public class PleyerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
         //we'll move vihicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime*speed);
-        transform.Translate(Vector3.right * Time.deltaTime * turnSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime*speed*forwardInput);
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed *horizontalInput);
     }
 }
